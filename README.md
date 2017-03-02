@@ -3,6 +3,8 @@
 
 ![screenshot00](https://github.com/magicsu/android-samples/blob/master/screenshot/Intro.jpg?raw=true)
 
+![screenshot00](https://github.com/magicsu/android-samples/blob/master/screenshot/Intro.jpg?raw=true)
+
 ##前言
 很纠结要不要写这样一篇介绍的文章，因为现在网上有很多关于这方面的文章，但是关于这几个开源项目一起搭配使用，在实际项目中的使用的文章还是很少。正好，最近有个东西用到了介绍里所说的这些开源项目，对于我来说，很多也是第一次用，作为一个新司机（第一次写技术文章~），还是想实习上路，写一下自己在项目中的实际使用，让更多的人使用到这些开源项目。希望可以给刚入门的你一丝温暖。
 
