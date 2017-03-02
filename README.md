@@ -1,5 +1,7 @@
 ##介绍
-关于RxJava、Retrofit、Realm、EventBus、单Activity多Fragment等的实践。项目code中有实际项目使用的部分源码。
+关于RxJava、Retrofit、Realm、单Activity多Fragment、多进程等的实践。项目code中有实际项目使用的部分源码。
+
+![screenshot00](https://github.com/magicsu/android-samples/blob/master/screenshot/Intro.jpg?raw=true)
 
 ##前言
 很纠结要不要写这样一篇介绍的文章，因为现在网上有很多关于这方面的文章，但是关于这几个开源项目一起搭配使用，在实际项目中的使用的文章还是很少。正好，最近有个东西用到了介绍里所说的这些开源项目，对于我来说，很多也是第一次用，作为一个新司机（第一次写技术文章~），还是想实习上路，写一下自己在项目中的实际使用，让更多的人使用到这些开源项目。希望可以给刚入门的你一丝温暖。
@@ -377,4 +379,14 @@ public DemoFragment extends BaseFragment {
 
 ```
 
+##TODO
+* 单Activity多Fragment的使用及注意项
+* Realm、Retrofit、Realm使用细化
 
+##写在最后
+
+###实施成果与感受
+这几个开源项目搭配起来使用，是为了解决之前旧项目的一些问题。比如程序内存占用高、性能低，代码耦合严重、存在大量模板代码、以及程序稳定性差。了解分析后，决定参照[googlesamples/android-architecture](https://github.com/googlesamples/android-architecture/)的todo‑mvp‑rxjava项目，结合retrofit、realm、eventbus的使用，同时，为了提升页面的流畅度，决定使用[单activity多fragment]的UI框架，开发完成后，实际使用效果很流畅，主要体现在网络请求、数据库操作、页面切换流畅度方面，内存占用也比较满意。
+
+###关于保活
+另外，提一下程序保活，由于这个app需要常驻后台，这个关系到用户的切身利益，由于使用群体的特殊性，对保活要求更高。网上也要很多的保活措施，但是很多对于系统版本兼容、耗电等情况不尽人意。结合实践，觉得有两点很重要。一是多进程的使用，将后台服务模块与UI模块分离，保证后台服务进程较低的内存占用，二是，将后台服务进程进程提升为前台服务，提升进程优先级。还可以通过将应用退出后，主动kill掉UI进程，来降低手机内存占用，进一步降低服务进程被kill概率。另外，还可以采用“1像素activity”的方式去提升进程优先级，记得将activity的进程和要保活的进程设置为同一个process。另外，也希望大家采取克制的态度去使用各式各样的保活机制，很多保活机制对手机的电量、流量都有一定的影响，是的，我们要克制的达成目标。
